@@ -4,10 +4,16 @@ const Bank = require('../models/banks')
 
 //get list of banks from the database
 router.get('/banks', function(req, res, next){
-    // res.send({type: 'GET'});
-    Bank.find({}).then(function(bank){
-        res.send(bank)
-    })
+    res.send({type: 'GET'});
+   Bank.find({}).then(function(bank){
+       res.send(bank)
+ });
+    // Bank.geoNear(
+    //     {type:'Point', coordinates: [parseFloat(req.query.lng), parseFloat(req.query.lat)]},
+    //     {maxDistance: 100000, spherical: true}
+    // ).then(function(bank){
+    //     res.send(bank);
+    // });
 });
 
 //add a new bank to the DB

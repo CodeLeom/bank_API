@@ -13,7 +13,7 @@
 
     <h1 class="title">Nigeria Banks API</h1>
     <div id="homepage">
-        <h1>Get The List of Banks in Nigeria and their States</h1>
+        <h1>Get The List of Banks in Nigeria and their Sort Code</h1>
         <div id="banks">
 
         </div>
@@ -28,30 +28,33 @@
 
 <!-- Create React Component -->
 <script type="text/babel">
-    var Bank = React.createClass({
+
+    var Banks = createReactClass => ({
         getInitialState: function(){
             return({
-                banks: []
-            });
+                bank: []
+            })
         },
         render: function(){
-            var banks = this.state.banks;
-            banks = banks.map(function(bank, index){
+            var banks = this.state.bank;
+            banks = bank.map(function(banklist, index){
                 return(
                     <li key={index}>
-                        <span className={bank.obj.available}></span>
                         <span className="name">{bank.obj.name}</span>
-                        <span className="states">{bank.array.states}</span>
+                        <span className="states">{bank.obj.states}</span>
+                        <span className="dist">{Math.floor(bank.dis/1000)}km</span>
                     </li>
-                );
+                )
             });
-            return(
+            retun(
                 <div id="bank-container">
                     <form id="search" onSubmit={this.handleSubmit}>
-                        <label>Enter your State:</label>
-                        <input type="submit" value="Find banks" />
+                        <label>Enter Bank Name</label>
+                        <input type="text" ref="lat" placeholder="latitude" required />
+                        <input type="submit" value="Find Banks" />
                     </form>
-                    <ul>{banks}</ul>
+
+                    <ul>{bank}</ul>
                 </div>
             );
         },
@@ -60,17 +63,17 @@
             var lng = this.refs.lng.value;
             var lat = this.refs.lat.value;
 
-            fetch('/api/banks/').then(function(data){
+            fetch('.api/banks').then(function(data){
                 return data.json();
-            }).then( json => {
+            }).then(json => {
                 this.setState({
-                    banks: json
+                    bank: json
                 });
-                console.log(json);
             });
         }
     });
-    ReactDOM.render(<banks />, document.getElementById('banks'));
+
+    ReactDOM.render(<Banks />, document.getElementById('banks'));
     </script>
 </body>
 </html>
