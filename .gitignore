@@ -5,7 +5,7 @@ logs
 *.log
 
 # dependencies
-/node_modules
+node_modules
 /.pnp
 .pnp.js
 .nyc_output
@@ -16,7 +16,6 @@ logs
 
 # production
 # Ignore build folder
-src/build
 
 # misc
 .DS_Store
