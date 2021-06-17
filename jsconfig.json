@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "checkJs": false,
+    "moduleResolution": "classic",
+    "target": "es2020",
+    "module": "es6",
+    "baseUrl": ".src/",
+    "paths": {
+      "constants/*": ["constants/*"],
+      "database/*": ["database/*"],
+      "controllers/*": ["controllers/*"],
+      "routes/*": ["routes/*"],
+      "services/*": ["services/*"],
+      "utils/*": ["utils/*"],
+      "validation/*": ["validation/*"]
+    }
+  },
+  "exclude": [
+    "dist",
+    "node_modules",
+    "build",
+    ".vscode",
+    "coverage",
+    ".npm",
+    ".yarn"
+  ],
+  "typeAcquisition": {
+    "enable": true,
+    "include": ["node"]
+  }
+}
