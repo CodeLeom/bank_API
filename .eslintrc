@@ -1,0 +1,11 @@
+{
+  "extends": ["airbnb", "prettier"],
+  "root": true,
+  "env": {
+    "node": true,
+    "es6": true,
+    "mongo": true,
+    "mocha": true
+  },
+  "rules": {}
+}
